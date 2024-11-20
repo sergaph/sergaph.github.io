@@ -8,4 +8,7 @@ export default defineConfig({
   site: 'https://masle.net',
   base: 'astro',
   integrations: [tailwind()],
+  build: {
+    assets: 'assets'
+  }
 });
