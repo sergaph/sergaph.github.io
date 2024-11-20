@@ -1,0 +1,180 @@
+---
+import { date } from "astro:schema";
+
+// interface Props {
+// 	title: string;
+// 	body: string;
+// 	href: string;
+// }
+
+// const { href, title, body } = Astro.props;
+
+interface UnsplashPhoto {
+  id: string;
+  slug: string;
+  alternative_slugs: AlternativeSlugs;
+  created_at: string;
+  updated_at: string;
+  promoted_at: any;
+  width: number;
+  height: number;
+  color: string;
+  blur_hash: string;
+  description: any;
+  alt_description?: string;
+  breadcrumbs: any[];
+  urls: Urls;
+  links: Links;
+  likes: number;
+  liked_by_user: boolean;
+  current_user_collections: any[];
+  sponsorship: any;
+  topic_submissions: TopicSubmissions;
+  asset_type: string;
+  user: User;
+  pinned: any;
+}
+
+interface AlternativeSlugs {
+  en: string;
+  es: string;
+  ja: string;
+  fr: string;
+  it: string;
+  ko: string;
+  de: string;
+  pt: string;
+}
+
+interface Urls {
+  raw: string;
+  full: string;
+  regular: string;
+  small: string;
+  thumb: string;
+  small_s3: string;
+}
+
+interface Links {
+  self: string;
+  html: string;
+  download: string;
+  download_location: string;
+}
+
+interface TopicSubmissions {}
+
+interface User {
+  id: string;
+  updated_at: string;
+  username: string;
+  name: string;
+  first_name: string;
+  last_name: string;
+  twitter_username: string;
+  portfolio_url: string;
+  bio: any;
+  location: string;
+  links: Links2;
+  profile_image: ProfileImage;
+  instagram_username: string;
+  total_collections: number;
+  total_likes: number;
+  total_photos: number;
+  total_promoted_photos: number;
+  total_illustrations: number;
+  total_promoted_illustrations: number;
+  accepted_tos: boolean;
+  for_hire: boolean;
+  social: Social;
+}
+
+interface Links2 {
+  self: string;
+  html: string;
+  photos: string;
+  likes: string;
+  portfolio: string;
+  following: string;
+  followers: string;
+}
+
+interface ProfileImage {
+  small: string;
+  medium: string;
+  large: string;
+}
+
+interface Social {
+  instagram_username: string;
+  portfolio_url: string;
+  twitter_username: string;
+  paypal_email: any;
+}
+
+const myHeaders = new Headers();
+myHeaders.append(
+  "Authorization",
+  "Client-ID bAUXOSrnCx7J8FweZ6MlhBqqne8rTrmPsRP2Hq_qUwM"
+);
+
+const requestOptions: RequestInit = {
+  method: "GET",
+  headers: myHeaders,
+  redirect: "follow",
+};
+
+const data: UnsplashPhoto[] = await fetch(
+  "https://api.unsplash.com/users/sergeymasle/photos?per_page=100",
+  requestOptions
+).then((r) => r.json());
+---
+
+<div class="pt-4 pl-4 pr-4">
+  <div class="grid grid-cols-7 gap-4">
+	{data.map((u, index) => <div><img src=`${u.urls.small_s3}` /></div>)}
+  </div>
+  <!-- <ul>
+    {data.map((u, index) => <li>{index+1} <img src=`${u.urls.small_s3}` /></li>)}
+  </ul> -->
+</div>
+<!-- <style>
+	.link-card {
+		list-style: none;
+		display: flex;
+		padding: 1px;
+		background-color: #23262d;
+		background-image: none;
+		background-size: 400%;
+		border-radius: 7px;
+		background-position: 100%;
+		transition: background-position 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+		box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+	}
+	.link-card > a {
+		width: 100%;
+		text-decoration: none;
+		line-height: 1.4;
+		padding: calc(1.5rem - 1px);
+		border-radius: 8px;
+		color: white;
+		background-color: #23262d;
+		opacity: 0.8;
+	}
+	h2 {
+		margin: 0;
+		font-size: 1.25rem;
+		transition: color 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+	}
+	p {
+		margin-top: 0.5rem;
+		margin-bottom: 0;
+	}
+	.link-card:is(:hover, :focus-within) {
+		background-position: 0;
+		background-image: var(--accent-gradient);
+	}
+	.link-card:is(:hover, :focus-within) h2 {
+		color: rgb(var(--accent-light));
+	}
+</style> -->
