@@ -1,6 +1,4 @@
 ---
-import { date } from "astro:schema";
-
 // interface Props {
 // 	title: string;
 // 	body: string;
@@ -115,7 +113,7 @@ interface Social {
 const myHeaders = new Headers();
 myHeaders.append(
   "Authorization",
-  "Client-ID bAUXOSrnCx7J8FweZ6MlhBqqne8rTrmPsRP2Hq_qUwM"
+  `Client-ID ${import.meta.env.PUBLIC_UNSPLASH_CLIENT_ID}`
 );
 
 const requestOptions: RequestInit = {
@@ -131,12 +129,9 @@ const data: UnsplashPhoto[] = await fetch(
 ---
 
 <div class="pt-4 pl-4 pr-4">
-  <div class="grid grid-cols-7 gap-4">
-	{data.map((u, index) => <div><img src=`${u.urls.small_s3}` /></div>)}
+  <div class="grid grid-cols-7 gap-0">
+	  {data !== null ? data.map((u) => <div><img src=`${u.urls.small_s3}` /></div>) : "Error fetch Unsplash.com"}
   </div>
-  <!-- <ul>
-    {data.map((u, index) => <li>{index+1} <img src=`${u.urls.small_s3}` /></li>)}
-  </ul> -->
 </div>
 <!-- <style>
 	.link-card {
