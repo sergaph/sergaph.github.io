@@ -1,0 +1,3 @@
+#!/bin/bash
+# export PUBLIC_UNSPLASH_CLIENT_ID=ExAmPle-X7_AcEss...
+echo $PUBLIC_UNSPLASH_CLIENT_ID
