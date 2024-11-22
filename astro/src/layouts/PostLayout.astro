@@ -22,9 +22,9 @@ const { frontmatter } = Astro.props;
       <div class="grow h-14">
           <h1 class="text-4xl pt-4">{frontmatter.title}</h1>
           <p class="text-sm pb-4">Author {frontmatter.author}</p>
-        <div class="prose prose-xl prose-p:indent-9">
+        <article class="prose prose-xl prose-p:indent-9">
           <slot />
-        </div>
+        </article>
         <p>Written on: {frontmatter.date}</p>
       </div>
       <div class="flex-none w-14 h-14"></div>
