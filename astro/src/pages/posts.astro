@@ -1,0 +1,23 @@
+---
+import Layout from '../layouts/Layout.astro';
+// import MyComponent from '../components/MyComponent.astro';
+const posts = await Astro.glob('./post/*.md');
+---
+
+<Layout title="Welcome to Astro.">
+	<main>
+		<div class="flex justify-center pt-2">
+			<p class="text-3xl subpixel-antialiased">MASLE :: Posts</p>
+		</div>
+		<!-- <MyComponent /> -->
+		<div>
+			{posts.slice(0, 3).map((post) => (
+			  <article>
+				<h2>{post.frontmatter.title}</h2>
+				<p>{post.frontmatter.description}</p>
+				<a href={post.url}>Read more</a>
+			  </article>
+			))}
+			</div>
+	</main>
+</Layout>

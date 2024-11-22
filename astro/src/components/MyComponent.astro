@@ -129,8 +129,18 @@ const data: UnsplashPhoto[] = await fetch(
 ---
 
 <div class="pt-4 pl-4 pr-4">
-  <div class="grid grid-cols-7 gap-0">
-	  {data !== null ? data.map((u) => <div><img src=`${u.urls.small_s3}` /></div>) : "Error fetch Unsplash.com"}
+  <div class="grid grid-cols-7 gap-4">
+	  {
+      data.map((u) => 
+        <div>
+          <img 
+            src=`${u.urls.small_s3}` 
+            decoding="async"
+            loading="lazy"
+          />
+        </div>
+      )
+    }
   </div>
 </div>
 <!-- <style>
