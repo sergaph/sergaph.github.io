@@ -1,6 +1,6 @@
 ---
 interface Props {
-	title: string;
+  title: string;
 }
 
 const { title } = Astro.props;
@@ -8,17 +8,20 @@ const { title } = Astro.props;
 
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
-	</head>
-	<body>
-		<slot />
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Astro description" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <!-- <body class="min-h-screen bg-gradient-to-br from-[#312B33] from-10% #312B33 from-54% to-[#312B33] to-93%"> -->
+  <body class="min-h-screen bg-gradient-to-br from-[#1C1C1C] from-10% #312B33 from-54% to-[#1B1B1B] to-93%">
+    <div class="h-screen w-screen">
+      <slot />
+    </div>
+  </body>
 </html>
 <!-- <style is:global>
 	:root {
