@@ -1,0 +1,49 @@
+---
+const title = "360 photo";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Astro description" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.css"
+    />
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"
+    ></script>
+    <style>
+      /* #panorama {
+        width: auto;
+        height: 600px;
+      } */
+    </style>
+  </head>
+  <body
+    class="min-h-screen bg-gradient-to-br from-[#1C1C1C] from-10% #312B33 from-54% to-[#1B1B1B] to-93%"
+  >
+    <div class="h-screen w-screen flex justify-center grid content-center">
+      <div id="panorama"></div>
+      <script>
+        var h = window.screen.availHeight * 5 / 6;
+        var w = window.screen.availWidth * 5 / 6;
+        
+        document.getElementById("panorama").style.width = `${w}px`;
+        document.getElementById("panorama").style.height = `${h}px`;
+        
+        pannellum.viewer("panorama", {
+          type: "equirectangular",
+          panorama: "https://pannellum.org/images/tocopilla.jpg",
+          preview: "https://pannellum.org/images/tocopilla-preview.jpg",
+        });
+      </script>
+    </div>
+  </body>
+</html>
