@@ -24,26 +24,95 @@ const title = "360 photo";
         width: auto;
         height: 600px;
       } */
+      #controls {
+        position: absolute;
+        bottom: 0;
+        z-index: 2;
+        text-align: center;
+        width: 100%;
+        padding-bottom: 3px;
+        pointer-events: none;
+      }
+      .ctrl {
+        padding: 8px 5px;
+        width: 30px;
+        text-align: center;
+        background: rgba(200, 200, 200, 0.8);
+        display: inline-block;
+        cursor: pointer;
+        pointer-events: auto;
+      }
+      .ctrl:hover {
+        background: rgba(200, 200, 200, 1);
+      }
     </style>
   </head>
   <body
     class="min-h-screen bg-gradient-to-br from-[#1C1C1C] from-10% #312B33 from-54% to-[#1B1B1B] to-93%"
   >
     <div class="h-screen w-screen flex justify-center grid content-center">
-      <div id="panorama"></div>
+      <div id="panorama">
+        <div id="controls">
+          <div class="ctrl" id="pan-up">&#9650;</div>
+          <div class="ctrl" id="pan-down">&#9660;</div>
+          <div class="ctrl" id="pan-left">&#9664;</div>
+          <div class="ctrl" id="pan-right">&#9654;</div>
+          <div class="ctrl" id="zoom-in">&plus;</div>
+          <div class="ctrl" id="zoom-out">&minus;</div>
+          <div class="ctrl" id="fullscreen">&#x2922;</div>
+        </div>
+      </div>
       <script is:inline>
-        var h = window.screen.availHeight * 5 / 6;
-        var w = window.screen.availWidth * 5 / 6;
-        
+        var h = (window.screen.availHeight * 3) / 6;
+        var w = (window.screen.availWidth * 5) / 6;
+
         document.getElementById("panorama").style.width = `${w}px`;
         document.getElementById("panorama").style.height = `${h}px`;
-        
-        pannellum.viewer("panorama", {
+
+        viewer = pannellum.viewer("panorama", {
           type: "equirectangular",
-          showFullscreenCtrl: true,
+          showControls: false,
+          autoLoad: true,
           panorama: "https://pannellum.org/images/tocopilla.jpg",
           preview: "https://pannellum.org/images/tocopilla-preview.jpg",
         });
+
+        // Make buttons work
+        document
+          .getElementById("pan-up")
+          .addEventListener("click", function (e) {
+            viewer.setPitch(viewer.getPitch() + 10);
+          });
+        document
+          .getElementById("pan-down")
+          .addEventListener("click", function (e) {
+            viewer.setPitch(viewer.getPitch() - 10);
+          });
+        document
+          .getElementById("pan-left")
+          .addEventListener("click", function (e) {
+            viewer.setYaw(viewer.getYaw() - 10);
+          });
+        document
+          .getElementById("pan-right")
+          .addEventListener("click", function (e) {
+            viewer.setYaw(viewer.getYaw() + 10);
+          });
+        document
+          .getElementById("zoom-in")
+          .addEventListener("click", function (e) {
+            viewer.setHfov(viewer.getHfov() - 10);
+          });
+        document
+          .getElementById("zoom-out")
+          .addEventListener("click", function (e) {
+            viewer.setHfov(viewer.getHfov() + 10);
+          });
+        document
+          .getElementById("fullscreen")
+          .addEventListener("click", function (e) {
+            viewer.toggleFullscreen();
+          });
       </script>
     </div>
   </body>
