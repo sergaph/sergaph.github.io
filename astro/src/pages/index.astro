@@ -2,6 +2,12 @@
 import LayoutNew from "../layouts/LayoutNew.astro";
 import { Image } from "astro:assets";
 import Avatar2 from "../assets/avatar3.png";
+import SocialVK from "../assets/social/VK_white.svg";
+import SocialTG from "../assets/social/Telegram_white.svg";
+import SocialGH from "../assets/social/Github_white.svg";
+import SocialLIN from "../assets/social/LinkedIN_white.svg";
+import SocialUNSP from "../assets/social/Unsplash_white.svg";
+
 // import Avatar from "../assets/avatar.svg";
 // import Avatar from "../assets/avatar.png";
 // import Avatar from "../assets/avatar-cropped.svg";
@@ -16,8 +22,22 @@ import Avatar2 from "../assets/avatar3.png";
     </div>
     <div class="flex justify-center">
       <div class="flex flex-col">
-        <div class="text-[#E1E1E1] pt-10 text-[37px] text-center font-mono xs:text-[32px]">Сергей Масленников</div>
-        <div class="text-[#E1E1E1] text-center italic font-thin">Engineer, developer, photographer</div>
+        <div
+          class="text-[#E1E1E1] pt-10 text-[37px] text-center font-mono xs:text-[32px]"
+        >
+          Сергей Масленников
+        </div>
+        <div class="text-[#E1E1E1] text-center italic font-thin">
+          Engineer, developer, photographer
+        </div>
+        <div class="flex flex-row gap-5 justify-center pt-20 pb-20">
+          <Image class="max-w-[35px]" src={SocialVK} alt="descriptive text" />
+          <Image class="max-w-[35px]" src={SocialTG} alt="descriptive text" />
+          <Image class="max-w-[35px]" src={SocialGH} alt="descriptive text" />
+          <Image class="max-w-[35px]" src={SocialLIN} alt="descriptive text" />
+          <Image class="max-w-[35px]" src={SocialUNSP} alt="descriptive text" />
+          <!-- Telegram // Unsplash // Github -->
+        </div>
       </div>
     </div>
   </main>
