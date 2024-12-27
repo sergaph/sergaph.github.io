@@ -39,8 +39,8 @@ const { title } = Astro.props;
       <div class="grid grid-cols-1 h-screen">
         <div class="grid grid-cols-2 place-content-between pl-5 pt-5 pr-5">
           <div class="flex justify-start align-top">
-            <a href="/">
-              <span class="text-[#E1E1E1] text-[50px] mt-[-20px] font-mono"
+            <a class="mt-[-20px]" href="/">
+              <span class="text-[#E1E1E1] text-[50px] font-mono"
                 >M.</span
               >
             </a>
@@ -57,7 +57,7 @@ const { title } = Astro.props;
             <div>
               <a href="https://astro.build/">
                 <Image
-                  class="max-w-[110px]"
+                  class="max-w-[110px] cursor-pointer"
                   src={AstroLogo}
                   alt="descriptive text"
                 />
