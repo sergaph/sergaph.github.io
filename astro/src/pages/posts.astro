@@ -1,16 +1,16 @@
 ---
 import { getCollection } from "astro:content";
-import Layout from "../layouts/Layout.astro";
+import LayoutNew from "../layouts/LayoutNew.astro";
 // import MyComponent from '../components/MyComponent.astro';
 // const posts = await Astro.glob('./post/*.md');
 const posts = await getCollection("posts");
 ---
 
-<Layout title="Welcome to Astro.">
+<LayoutNew title="Welcome to Astro.">
   <main>
-    <div class="flex justify-center pt-2">
+    <!-- <div class="flex justify-center pt-2">
       <p class="text-3xl subpixel-antialiased">MASLE :: Posts</p>
-    </div>
+    </div> -->
     <!-- <MyComponent /> -->
     <div>
       {
@@ -25,4 +25,4 @@ const posts = await getCollection("posts");
       }
     </div>
   </main>
-</Layout>
+</LayoutNew>

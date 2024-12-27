@@ -7,6 +7,7 @@ export default {
 			fontFamily: {
 				// mono: ['DistantGalaxy', ...defaultTheme.fontFamily.mono],
 				mono: ['Behrens', ...defaultTheme.fontFamily.mono],
+				sans: ['Roboto', ...defaultTheme.fontFamily.sans]
 			  },
 		},
 	},
