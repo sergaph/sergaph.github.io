@@ -1,41 +1,32 @@
 ---
 interface Props {
-  title: string;
+  description: string;
+  url: string;
 }
 
-const { title } = Astro.props;
+const { description, url } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en">
+<html>
   <head>
-    <meta charset="UTF-8" />
-    <meta name="description" content="Astro description" />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="generator" content={Astro.generator} />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.css"
-    />
-    <script
-      type="text/javascript"
-      src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"
-    ></script>
-    <style>
-      #panorama {
-        width: 600px;
-        height: 400px;
-      }
-    </style>
-    <title>{title}</title>
+    <meta charset="utf-8" />
+    <title>MASLE::360</title>
+    <meta name="description" content="360° photo" />
+    <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
   </head>
-  <!-- <body class="min-h-screen bg-gradient-to-br from-[#312B33] from-10% #312B33 from-54% to-[#312B33] to-93%"> -->
-  <body
-    class="min-h-screen bg-gradient-to-br from-[#1C1C1C] from-10% #312B33 from-54% to-[#1B1B1B] to-93%"
-  >
-    <div class="h-screen w-screen">
-      <slot />
-    </div>
+  <body>
+    <a-scene>
+      <a-sky
+        src={url}
+        rotation="0 -130 0"></a-sky>
+
+      <a-text
+        font="kelsonsans"
+        value={description}
+        width="6"
+        position="-2.5 1.25 -1.5"
+        rotation="0 15 0"></a-text>
+    </a-scene>
   </body>
 </html>
