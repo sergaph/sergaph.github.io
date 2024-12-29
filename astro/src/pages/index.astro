@@ -1,7 +1,7 @@
 ---
 import LayoutNew from "../layouts/LayoutNew.astro";
 import { Image } from "astro:assets";
-import Avatar2 from "../assets/avatar3.png";
+import Avatar from "../assets/avatar.png";
 import SocialVK from "../assets/social/VK_white.svg";
 import SocialTG from "../assets/social/Telegram_white.svg";
 import SocialGH from "../assets/social/Github_white.svg";
@@ -18,7 +18,7 @@ import SocialUNSP from "../assets/social/Unsplash_white.svg";
 <LayoutNew title="MASLE">
   <main>
     <div class="container mx-auto flex justify-center pt-10">
-      <Image class="max-w-[300px]" src={Avatar2} alt="descriptive text" />
+      <Image class="max-w-[300px]" src={Avatar} alt="descriptive text" />
     </div>
     <div class="flex justify-center">
       <div class="flex flex-col">
@@ -28,7 +28,7 @@ import SocialUNSP from "../assets/social/Unsplash_white.svg";
           Сергей Масленников
         </div>
         <div class="text-[#E1E1E1] text-center italic font-thin">
-          Engineer, developer, photographer
+          Инженер, разработчик, фотограф
         </div>
         <div class="flex flex-row gap-5 justify-center pt-20 pb-20">
           <Image class="max-w-[35px]" src={SocialVK} alt="descriptive text" />

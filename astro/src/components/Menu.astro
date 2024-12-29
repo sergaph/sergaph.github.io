@@ -1,0 +1,37 @@
+---
+import {
+  Astronav,
+  MenuItems,
+  MenuIcon,
+  Dropdown,
+  DropdownItems,
+  CloseIcon,
+  OpenIcon,
+} from "astro-navbar";
+import { Image } from "astro:assets";
+import Burger from "../assets/burger2.svg";
+---
+
+<Astronav>
+  <MenuItems class="hidden static w-screen">
+      <div class="absolute left-0 bottom-1/2">
+        <p>Absolute child</p>
+      </div>
+  </MenuItems>
+  <MenuIcon>
+    <OpenIcon>
+      <Image
+        class="h-10 w-10 cursor-pointer"
+        src={Burger}
+        alt="descriptive text"
+      />
+    </OpenIcon>
+    <CloseIcon>
+      <Image
+        class="h-10 w-10 cursor-pointer"
+        src={Burger}
+        alt="descriptive text"
+      />
+    </CloseIcon>
+  </MenuIcon>
+</Astronav>
