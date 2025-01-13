@@ -46,12 +46,12 @@ const { frontmatter } = Astro.props;
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Photo Sphere Viewer Example</title>
+    <title>{title}</title>
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/@photo-sphere-viewer/core/index.min.css"
     />
-    <script type="importmap">
+    <script is:inline type="importmap">
       {
         "imports": {
           "three": "https://cdn.jsdelivr.net/npm/three/build/three.module.js",
@@ -78,10 +78,11 @@ const { frontmatter } = Astro.props;
     <!-- Контейнер для Photo Sphere Viewer -->
     <div id="viewer"></div>
 
-    <script type="module" define:vars={{ frontmatter }}>
+    <script is:inline type="module" define:vars={{ frontmatter }}>
       import { Viewer } from "@photo-sphere-viewer/core";
 
-      const viewer = new Viewer({
+      // const viewer = 
+      new Viewer({
         container: document.querySelector("#viewer"),
         // panorama: "https://storage.clo.ru/s3-masle-net-default-bucket/Samui_Villa_291224.JPG",
         panorama: frontmatter.photoUrl,
