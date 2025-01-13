@@ -80,12 +80,14 @@ const { frontmatter } = Astro.props;
 
     <script is:inline type="module" define:vars={{ frontmatter }}>
       import { Viewer } from "@photo-sphere-viewer/core";
+      import { GyroscopePlugin } from "@photo-sphere-viewer/gyroscope-plugin";
 
-      // const viewer = 
+      // const viewer =
       new Viewer({
         container: document.querySelector("#viewer"),
         // panorama: "https://storage.clo.ru/s3-masle-net-default-bucket/Samui_Villa_291224.JPG",
         panorama: frontmatter.photoUrl,
+        plugins: [GyroscopePlugin],
       });
     </script>
     <!-- <script>
