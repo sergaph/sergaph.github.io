@@ -17,7 +17,7 @@ CURRENT_DATE=$(date +"%d %b %Y")
 
 # Содержимое файла
 CONTENT="---
-layout: '../../layouts/Layout360.astro'
+layout: '../../layouts/Layout360PSV.astro'
 author: \"Sergey Maslennikov\"
 date: \"$CURRENT_DATE\"
 title: \"<TITLE>\"

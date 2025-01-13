@@ -1,6 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 import LayoutNew from "../layouts/LayoutNew.astro";
+import Photo360Preview from "../components/Photo360Preview.astro";
 
 const photos360 = await getCollection("photos360");
 ---
@@ -12,7 +13,8 @@ const photos360 = await getCollection("photos360");
     </div> -->
     <!-- <MyComponent /> -->
     <!-- <div>{JSON.stringify(photos360)}</div> -->
-    <div class="grid grid-cols-4 gap-4 place-items-center">
+    <!-- <div class="grid grid-cols-4 gap-4 place-items-center xs:grid-cols-1"> -->
+    <div class="flex flex-wrap justify-center gap-10">
       {
         photos360.map((photo) => (
           //   {/* <article> */}
@@ -21,12 +23,19 @@ const photos360 = await getCollection("photos360");
           // 	{/* <a href={post.url}>Read more</a> */}
           //   {/* </article> */}
           // <a href={Astro.url.pathname + photo.id}>{photo.data.title} — {photo.data.author} — {photo.id} - {photo.data.isDraft}</a>
-          <div>
-            <a href={Astro.url.pathname + '/' + photo.id}>
-              <img src={photo.data.previewUrl} class="w-60" />
-              <div>{photo.data.title}</div>
-            </a>
-          </div>
+
+          // <div>
+          //   <a href={Astro.url.pathname + '/' + photo.id}>
+          //     <img src={photo.data.previewUrl} class="w-60 rounded-lg" />
+          //     <div>{photo.data.title}</div>
+          //   </a>
+          // </div>
+
+          <Photo360Preview 
+          url={photo.data.previewUrl} 
+          href={Astro.url.pathname + '/' + photo.id}
+          title={photo.data.title}
+          />
         ))
       }
     </div>
