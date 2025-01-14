@@ -57,17 +57,18 @@ const { frontmatter } = Astro.props;
       import { Viewer } from "@photo-sphere-viewer/core";
       import { GyroscopePlugin } from "@photo-sphere-viewer/gyroscope-plugin";
 
-      function getViewportSize() {
+      function getViewportWidth() {
         const width = Math.max(
           document.documentElement.clientWidth || 0,
           window.innerWidth || 0
         );
-        const height = Math.max(
-          document.documentElement.clientHeight || 0,
-          window.innerHeight || 0
-        );
 
-        return { width, height };
+        return width;
+      }
+
+      function getRealViewportHeight() {
+        const doc = document.documentElement;
+        return Math.min(doc.clientHeight, window.innerHeight);
       }
 
       new Viewer({
@@ -78,9 +79,10 @@ const { frontmatter } = Astro.props;
       });
 
       window.visualViewport.addEventListener("resize", () => {
-        const viewport = getViewportSize();
-        document.getElementById("viewer").style.width = `${viewport.width}px`;
-        document.getElementById("viewer").style.height = `${viewport.height}px`;
+        const width = getViewportWidth();
+        const height = getRealViewportHeight();
+        document.getElementById("viewer").style.width = `${width}px`;
+        document.getElementById("viewer").style.height = `${height}px`;
       });
     </script>
   </body>
