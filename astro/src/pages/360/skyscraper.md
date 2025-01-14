@@ -1,5 +1,5 @@
 ---
-layout: '../../layouts/Layout360PSV.astro'
+layout: '../../layouts/View360.astro'
 author: "Sergey Maslennikov"
 date: "13 Jan 2025"
 title: "Skyscraper"

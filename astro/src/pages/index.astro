@@ -1,5 +1,5 @@
 ---
-import LayoutNew from "../layouts/LayoutNew.astro";
+import Main from "../layouts/Main.astro";
 import { Image } from "astro:assets";
 import Avatar from "../assets/avatar.png";
 import SocialVK from "../assets/social/VK_white.svg";
@@ -7,15 +7,9 @@ import SocialTG from "../assets/social/Telegram_white.svg";
 import SocialGH from "../assets/social/Github_white.svg";
 import SocialLIN from "../assets/social/LinkedIN_white.svg";
 import SocialUNSP from "../assets/social/Unsplash_white.svg";
-
-// import Avatar from "../assets/avatar.svg";
-// import Avatar from "../assets/avatar.png";
-// import Avatar from "../assets/avatar-cropped.svg";
-// import Avatar from "../assets/avatar_crop.png";
-// import MyComponent from '../components/MyComponent.astro';
 ---
 
-<LayoutNew title="MASLE">
+<Main title="MASLE">
   <main>
     <div class="container mx-auto flex justify-center pt-10">
       <Image class="max-w-[300px]" src={Avatar} alt="descriptive text" />
@@ -41,37 +35,4 @@ import SocialUNSP from "../assets/social/Unsplash_white.svg";
       </div>
     </div>
   </main>
-</LayoutNew>
-
-<!-- <div class="grid grid-cols-4 gap-4">
-  <a href="#">
-    <box
-      class="text-[50px]  box-decoration-slice bg-gradient-to-r from-[#1E1E1E] text-white"
-      >blog</box
-    >
-  </a>
-  <a href="#">
-    <box
-      class="text-[50px]  box-decoration-slice bg-gradient-to-r from-[#1E1E1E] text-white"
-      >photography</box
-    ></a
-  >
-  <a href="#"
-    ><box
-      class="text-[50px]  box-decoration-slice bg-gradient-to-r from-[#1E1E1E] text-white"
-      >stories</box
-    ></a
-  >
-  <a href="#"
-    ><box
-      class="text-[50px]  box-decoration-slice bg-gradient-to-r from-[#1E1E1E] text-white"
-      >360</box
-    ></a
-  >
-  <a href="#"
-    ><box
-      class="text-[50px]  box-decoration-slice bg-gradient-to-r from-[#1E1E1E] text-white"
-      >about</box
-    ></a
-  >
-</div> -->
+</Main>

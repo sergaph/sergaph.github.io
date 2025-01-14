@@ -1,5 +1,5 @@
 ---
-layout: '../../layouts/PostLayout.astro'
+layout: '../../layouts/Post.astro'
 author: "Sergey Maslennikov"
 date: "23 Nov 2024"
 

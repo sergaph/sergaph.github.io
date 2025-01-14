@@ -1,15 +1,14 @@
 ---
 import { Image } from "astro:assets";
 import AstroLogo from "../assets/astro-logo-gray.svg";
-// import Burger from "../assets/burger2.svg";
-// import Menu from "../components/Menu.astro";
 import MenuButton from "../components/MenuButton.astro";
 
 interface Props {
   title: string;
+  subTitle?: string;
 }
 
-const { title } = Astro.props;
+const { title, subTitle } = Astro.props;
 ---
 
 <!doctype html>
@@ -43,11 +42,16 @@ const { title } = Astro.props;
   <body class="bg-[#3D3D3D]">
     <div class="h-screen w-screen">
       <div class="grid grid-cols-1 h-screen">
-        <div class="grid grid-cols-2 place-content-between pl-5 pt-5 pr-5">
+        <div class="grid grid-cols-3 place-content-between pl-5 pt-5 pr-5">
           <div class="flex justify-start align-top">
             <a class="mt-[-20px]" href="/">
               <span class="text-[#E1E1E1] text-[50px] font-mono">M.</span>
             </a>
+          </div>
+          <div class="flex justify-center align-top">
+            <span class="text-[#E1E1E1] text-[35px]">
+              {subTitle}
+            </span>
           </div>
           <div class="flex justify-end align-top">
             <!-- <div class="h-10 w-10 flex justify-center align-middle"> -->
