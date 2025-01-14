@@ -67,11 +67,25 @@ const { frontmatter } = Astro.props;
       // const h = window.screen.availHeight;
       // const w = window.screen.availWidth;
 
-      const h = document.documentElement.clientHeight;
-      const w = document.documentElement.clientWidth;
+      // const h = document.documentElement.clientHeight;
+      // const w = document.documentElement.clientWidth;
+      function getViewportSize() {
+        const width = Math.max(
+          document.documentElement.clientWidth || 0,
+          window.innerWidth || 0
+        );
+        const height = Math.max(
+          document.documentElement.clientHeight || 0,
+          window.innerHeight || 0
+        );
 
-      document.getElementById("viewer").style.width = `${w}px`;
-      document.getElementById("viewer").style.height = `${h}px`;
+        return { width, height };
+      }
+
+      const viewport = getViewportSize();
+
+      document.getElementById("viewer").style.width = `${viewport.width}px`;
+      document.getElementById("viewer").style.height = `${viewport.height}px`;
       // const viewer =
       new Viewer({
         container: document.querySelector("#viewer"),
