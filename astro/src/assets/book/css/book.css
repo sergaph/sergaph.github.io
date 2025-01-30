@@ -1,0 +1,299 @@
+.book {
+  column-gap: var(--column-gap);
+  column-fill: auto;
+  column-count: auto;
+  column-width: var(--column-width);
+  height: var(--column-height);
+  width: var(--column-width);
+  margin-left: var(--column-gap);
+  margin-top: var(--vertical-margin);
+  widows: 2;
+  orphans: 2;
+  margin-top: 6rem;
+  word-wrap: break-word;
+
+  >* {
+    max-width: var(--column-width);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    margin: 4em 0 1rem 0;
+    break-inside: avoid;
+    break-before: avoid;
+    line-height: 1.1;
+    text-wrap: balance;
+
+    + :where(h1, h2, h3, h4) {
+      margin-top: 0;
+    }
+  }
+
+  h1 {
+    font-size: 2.5em;
+    margin-top: calc(var(--column-height) / 5);
+    break-before: always;
+    break-inside: avoid;
+  }
+
+  h2 {
+    font-size: 1.75em;
+    font-style: italic;
+  }
+
+  h3 {
+    font-size: 1.25em;
+  }
+
+  h4 {
+    font-size: 1.15em;
+    font-style: italic;
+  }
+
+  a {
+    color: var(--color-spot);
+
+    &:hover {
+      color: inherit;
+    }
+
+    &:visited {
+      color: var(--color-visited);
+    }
+  }
+
+  a.header-anchor {
+    text-decoration: none;
+    color: inherit;
+
+    &:focus-visible {
+      color: var(--color-spot);
+    }
+
+    &:hover {
+      text-decoration: underline;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 0.2em;
+    }
+
+    &.is-bookmark {
+      position: relative;
+      color: var(--color-spot);
+
+      &::before {
+        content: "☞";
+        font-size: 2rem;
+        position: absolute;
+        left: -2.5rem;
+        font-style: normal;
+        color: var(--color-spot);
+      }
+    }
+  }
+
+  p {
+    margin: 0;
+    padding: 0;
+    text-indent: 1em;
+  }
+
+  blockquote {
+    border-left: solid 1px var(--color-spot);
+    margin: 2em 0;
+    padding-left: 1em;
+    break-inside: avoid;
+    font-style: italic;
+
+    p {
+      text-indent: 0;
+    }
+
+    p:has(cite) {
+      font-style: normal;
+      margin-top: 1em;
+      font-size: 0.85em;
+
+      &::before {
+        content: "—";
+      }
+    }
+
+    cite {
+      font-style: normal;
+    }
+  }
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 2em 0;
+  }
+
+  th,
+  td {
+    text-align: left;
+    padding: 0.2em 0.5em;
+    border: solid 1px var(--color-spot);
+  }
+
+  th {
+    background-color: var(--color-selection);
+  }
+
+  footer {
+    margin-top: 1em;
+    text-indent: 0;
+
+    p {
+      text-indent: 0;
+    }
+  }
+
+  img {
+    display: block;
+    margin: 2rem auto;
+    max-width: 100%;
+    max-height: var(--column-height);
+  }
+
+  hr {
+    break-after: avoid-column;
+    width: 50%;
+    margin: 3em auto;
+    border: none;
+    border-bottom: 1px solid var(--color-spot);
+  }
+
+  .page-next,
+  .page {
+    break-inside: avoid;
+    break-after: column;
+    break-before: column;
+    width: var(--column-width);
+    height: var(--column-height);
+    padding: 1px;
+    margin: 0;
+  }
+
+  .page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    p {
+      text-indent: 0;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      margin-top: 0;
+    }
+  }
+
+  img.page {
+    object-fit: contain;
+    margin: 0;
+  }
+
+  .page-break {
+    margin-top: var(--column-height);
+  }
+
+  .page-next {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+
+    h1 {
+      font-size: 3em;
+      line-height: 1;
+      font-variant: small-caps;
+      font-variant-caps: small-caps;
+      margin: 0;
+    }
+
+    p {
+      margin: 2em 0;
+      font-size: 1.5em;
+    }
+
+    a {
+      font-size: 3em;
+      line-height: 1.2;
+      letter-spacing: -0.015em;
+      text-decoration: none;
+      color: var(--color-text);
+
+      >span {
+        color: var(--color-spot);
+      }
+
+      &:hover {
+        color: var(--color-spot);
+      }
+    }
+  }
+}
+
+.footnotes {
+  font-size: 0.85em;
+
+  &>dl {
+    margin: 0;
+
+    &>div {
+      padding: 0.5em;
+
+      &:target {
+        outline: 1px dashed var(--color-spot);
+      }
+
+      &+div {
+        margin-top: 0.5em;
+      }
+    }
+  }
+
+  & dt {
+    float: left;
+    margin-right: 1em;
+    font-weight: bold;
+
+    & a {
+      text-decoration: none;
+      color: var(--color-text);
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  & dd {
+    margin: 0;
+    padding-left: 2em;
+
+    & p {
+      margin: 0.25em 0;
+    }
+
+    &> :first-child {
+      margin-top: 0;
+    }
+
+    &> :last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.book-description {
+  margin-bottom: 100% !important;
+}

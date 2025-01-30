@@ -6,10 +6,7 @@ import BurgerClose from "../assets/burger-close.svg";
 
 <style>
   .t-border {
-    /* border: solid; */
-    /* border-color: red; */
     position: absolute;
-    /* top: 0; */
   }
 </style>
 <div
@@ -19,7 +16,6 @@ import BurgerClose from "../assets/burger-close.svg";
 >
   <div class="gird grid-cols-2">
     <div class="flex flex-row w-full justify-end pt-5 pr-5">
-      <!-- <div class="menu-button border-2 h-10 w-10 ">X</div> -->
       <div class="h-10 w-10 flex justify-center align-middle">
         <Image
           class="menu-button cursor-pointer"
@@ -39,32 +35,18 @@ import BurgerClose from "../assets/burger-close.svg";
   />
 </div>
 <script>
-  // Find all buttons with the `alert` class on the page.
   const buttons = document.querySelectorAll(".menu-button");
   const menuWindow = document.getElementById("menu-window");
 
-  // Handle clicks on each button.
   buttons.forEach((button) => {
     button.addEventListener("click", () => {
-      // alert("Button was clicked!");
       menuWindow!.hasAttribute("hidden")
         ? menuWindow!.removeAttribute("hidden")
         : menuWindow!.setAttribute("hidden", "");
     });
   });
 
-  // const wClientScreen = document.documentElement.clientWidth;
   const hClientScreen = document.documentElement.clientHeight;
-
-  // menuWindow!.innerHTML = `${wClientScreen.toString()} x ${hClientScreen}`;
-
-  // menuWindow!.style.left = '50px';
-  // menuWindow!.style.right = '50px';
-  // menuWindow!.style.top = '50px';
-  // menuWindow!.style.bottom = '50px';
-
-  // menuWindow!.style.width = `${wClientScreen-100}px`;
   menuWindow!.style.width = `${500}px`;
   menuWindow!.style.height = `${hClientScreen}px`;
-  // });
 </script>

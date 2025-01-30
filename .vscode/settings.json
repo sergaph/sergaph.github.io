@@ -1,3 +1,4 @@
 {
-    "prettier.configPath": "./astro/package.json"
+    "prettier.configPath": "./astro/package.json",
+    "CodeGPT.apiKey": "OpenAI"
 }
