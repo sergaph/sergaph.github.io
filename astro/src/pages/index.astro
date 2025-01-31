@@ -1,6 +1,5 @@
 ---
-import Main from "../layouts/ElgaMainView2.astro";
-// import Main from "../layouts/Main.astro";
+import MainView from "../layouts/MainView.astro";
 import { Image } from "astro:assets";
 import Avatar from "../assets/avatar.png";
 import SocialVK from "../assets/social/VK_white.svg";
@@ -10,30 +9,34 @@ import SocialLIN from "../assets/social/LinkedIN_white.svg";
 import SocialUNSP from "../assets/social/Unsplash_white.svg";
 ---
 
-<Main title="MASLE">
-  <main>
-    <div class="container mx-auto flex justify-center pt-10">
-      <Image class="max-w-[300px]" src={Avatar} alt="descriptive text" />
+<MainView title="MASLE">
+  <div id="main-container" class="w-[95vw] h-[90vh] flex flex-col gap-10">
+    <div id="avatar-container" class="w-full h-[25vh] flex flex-col gap-2 items-center justify-center overflow-hidden">
+      <Image id="avatar-image" class="w-auto h-[14vh]" src={Avatar} alt="Аватар" />
+      <div class="h-[10vh] flex flex-row">
+        <p class="name-font-style text-center leading-none w-full h-auto flex items-center justify-center text-[4vh] font-light">Сергей</p>
+        <p class="name-font-style text-center leading-none w-full h-auto flex items-center justify-center text-[4vh] font-bold">Масленников</p>
+      </div>
     </div>
-    <div class="flex justify-center">
-      <div class="flex flex-col">
-        <div
-          class="text-[#E1E1E1] pt-10 text-[37px] text-center font-mono xs:text-[32px]"
-        >
-          Сергей Масленников
-        </div>
-        <div class="text-[#E1E1E1] text-center italic font-thin">
-          Инженер, разработчик, фотограф
-        </div>
-        <div class="flex flex-row gap-5 justify-center pt-20 pb-20">
-          <Image class="max-w-[35px]" src={SocialVK} alt="descriptive text" />
-          <Image class="max-w-[35px]" src={SocialTG} alt="descriptive text" />
-          <Image class="max-w-[35px]" src={SocialGH} alt="descriptive text" />
-          <Image class="max-w-[35px]" src={SocialLIN} alt="descriptive text" />
-          <Image class="max-w-[35px]" src={SocialUNSP} alt="descriptive text" />
-          <!-- Telegram // Unsplash // Github -->
+    <div id="content-container" class="w-full h-[60vh] flex justify-center items-center">
+      <div class="bg-[#F2F2F2] max-w-[600px] rounded-[3vw] shadow-md w-[90vw] h-auto flex flex-col justify-center">
+        <div class="flex flex-col">
+          <a href="#"><p class="name-photography-style flex justify-center items-center h-[12vh]">фотографии</p></a>
+          <div class="w-[90%] border-b border-gray-300 mx-auto my-2"></div>
+          <a href="#"><p class="name-panorama-style flex justify-center items-center h-[12vh]">панорамы</p></a>
+          <div class="w-[90%] border-b border-gray-300 mx-auto my-2"></div>
+          <a href="#"><p class="name-story-style flex justify-center items-center h-[12vh]">нарративы</p></a>
         </div>
       </div>
     </div>
-  </main>
-</Main>
+    <div id="footer-container" class="w-full h-[15vh] flex justify-center items-end">
+      <div class="flex flex-row gap-5">
+        <Image class="filter-gray w-[30px] h-auto" src={SocialVK} alt="VK" />
+        <Image class="filter-gray w-[30px] h-auto" src={SocialTG} alt="Telegram" />
+        <Image class="filter-gray w-[30px] h-auto" src={SocialGH} alt="Github" />
+        <Image class="filter-gray w-[30px] h-auto" src={SocialLIN} alt="LinkedIn" />
+        <Image class="filter-gray w-[30px] h-auto" src={SocialUNSP} alt="Unsplash" />
+      </div>
+    </div>
+  </div>
+</MainView>

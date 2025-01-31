@@ -1,0 +1,94 @@
+---
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preload" href="/fonts/Partisanpress.otf" as="font" type="font/otf" crossorigin="anonymous">
+    <link rel="preload" href="/fonts/LincolnElectric-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
+    <link rel="preload" href="/fonts/SpecialEliteLomzz.ttf" as="font" type="font/ttf" crossorigin="anonymous">
+    <link rel="preload" href="/fonts/aempirial.ttf" as="font" type="font/ttf" crossorigin="anonymous">
+    <meta name="generator" content={Astro.generator} />
+    <style is:global>
+      :root {
+        --font-scale: min(2vw, 2vh);
+      }
+
+      @font-face {
+        font-family: "Partisanpress";
+        src: url("/fonts/Partisanpress.otf") format("truetype");
+        font-weight: normal;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      .name-photography-style {
+        font-family: "Partisanpress", sans-serif;
+        font-size: clamp(4rem, 7vw, 5rem);
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        letter-spacing: 0.8rem;
+      }
+
+      @font-face {
+        font-family: "LincolnElectric";
+        src: url("/fonts/LincolnElectric-Regular.ttf") format("truetype");
+        font-weight: normal;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      .name-panorama-style {
+        font-family: "LincolnElectric", sans-serif;
+        font-size: clamp(3rem, 5vw, 5rem);
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        letter-spacing: 0.5rem;
+      }
+
+      @font-face {
+        font-family: "SpecialEliteLomzz";
+        src: url("/fonts/SpecialEliteLomzz.ttf") format("truetype");
+        font-weight: normal;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      .name-story-style {
+        font-family: "SpecialEliteLomzz", sans-serif;
+        font-size: clamp(2.6rem, 4vw, 5rem);
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        letter-spacing: 0.5rem;
+      }
+
+      @font-face {
+        font-family: "AEmpirial";
+        src: url("/fonts/aempirial.ttf") format("truetype");
+        font-weight: normal;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      .name-font-style {
+        font-family: "AEmpirial", sans-serif;
+        color: rgba(0, 0, 0, 0.796);
+        letter-spacing: 0.4rem;
+      }
+
+      .filter-gray {
+        filter: invert(94%) sepia(5%) saturate(200%) hue-rotate(10deg)
+          brightness(100%) contrast(95%);
+      }
+    </style>
+    <title>{title}</title>
+  </head>
+  <body class="bg-[#F0EEEC] flex justify-center items-center h-screen overflow-hidden">
+    <slot />
+  </body>
+</html>
