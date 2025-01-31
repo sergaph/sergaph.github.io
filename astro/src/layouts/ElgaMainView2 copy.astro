@@ -1,0 +1,85 @@
+---
+import { Image } from "astro:assets";
+import Avatar from "../assets/avatar2.png";
+import SocialVK from "../assets/social/VK_white.svg";
+import SocialTG from "../assets/social/Telegram_white.svg";
+import SocialGH from "../assets/social/Github_white.svg";
+import SocialLIN from "../assets/social/LinkedIN_white.svg";
+import SocialUNSP from "../assets/social/Unsplash_white.svg";
+
+interface Props {
+  title: string;
+  subTitle?: string;
+}
+
+const { title, subTitle } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <style is:global>
+      :root {
+        --font-scale: min(2vw, 2vh);
+      }
+
+      .name-photography-style {
+        font-size: clamp(2rem, 4vw, 5rem);
+      }
+
+      .name-panorama-style {
+        font-size: clamp(1.5rem, 3vw, 4rem);
+      }
+
+      .name-story-style {
+        font-size: clamp(1rem, 2.5vw, 3.5rem);
+      }
+
+      .name-font-style {
+        font-size: clamp(1rem, 2vw, 2.5rem);
+        letter-spacing: 0.2rem;
+      }
+
+      .filter-gray {
+        filter: invert(94%) sepia(5%) saturate(200%) hue-rotate(10deg)
+          brightness(100%) contrast(95%);
+      }
+    </style>
+    <title>{title}</title>
+  </head>
+  <body class="bg-[#F0EEEC] flex justify-center items-center h-screen overflow-hidden">
+    <div class="w-full h-full flex flex-col items-center justify-between p-[2vh]">
+      
+      <!-- Аватар и имя -->
+      <div class="flex flex-col items-center justify-center w-full h-[30%]">
+        <Image class="w-[clamp(8rem, 12vw, 14rem)] h-auto max-h-[30vh]" src={Avatar} alt="Аватар" />
+        <p class="name-font-style pt-3">Сергей</p>
+        <p class="name-font-style">Масленников</p>
+      </div>
+
+      <!-- Блок с контентом -->
+      <div class="bg-[#F2F2F2] rounded-[3vw] shadow-md w-[90vw] h-[40%] flex flex-col justify-center p-[3vh]">
+        <div class="flex flex-col">
+          <a href="#"><p class="name-photography-style flex justify-center">Фотографии</p></a>
+          <div class="w-[90%] border-b border-gray-300 mx-auto my-2"></div>
+          <a href="#"><p class="name-panorama-style flex justify-center">Панорамы</p></a>
+          <div class="w-[90%] border-b border-gray-300 mx-auto my-2"></div>
+          <a href="#"><p class="name-story-style flex justify-center">Нарративы</p></a>
+        </div>
+      </div>
+
+      <!-- Социальные иконки -->
+      <div class="flex flex-row justify-center items-end gap-5 w-full h-[10%] pb-[2vh]">
+        <Image class="w-[clamp(30px, 5vw, 50px)] h-auto" src={SocialVK} alt="VK" />
+        <Image class="w-[clamp(30px, 5vw, 50px)] h-auto" src={SocialTG} alt="Telegram" />
+        <Image class="w-[clamp(30px, 5vw, 50px)] h-auto" src={SocialGH} alt="Github" />
+        <Image class="w-[clamp(30px, 5vw, 50px)] h-auto" src={SocialLIN} alt="LinkedIn" />
+        <Image class="w-[clamp(30px, 5vw, 50px)] h-auto" src={SocialUNSP} alt="Unsplash" />
+      </div>
+    </div>
+  </body>
+</html>
