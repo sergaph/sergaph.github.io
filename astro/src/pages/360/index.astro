@@ -1,12 +1,12 @@
 ---
 import { getCollection } from "astro:content";
-import Main from "../../layouts/Main.astro";
+import Main from "../../layouts/MainView.astro";
 import Photo360Preview from "../../components/Photo360Preview.astro";
 
 const photos360 = await getCollection("photos360");
 ---
 
-<Main title="Welcome to Astro." subTitle="360">
+<Main title="Welcome to Astro.">
   <main>
     <!-- <div class="flex justify-center pt-2">
       <p class="text-3xl subpixel-antialiased">MASLE :: Posts</p>
