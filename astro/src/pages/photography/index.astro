@@ -1,0 +1,43 @@
+---
+import { getCollection } from "astro:content";
+import MainView from "../../layouts/IndexView.astro";
+
+const photos = await getCollection("photos");
+---
+
+<MainView title="MASLE ◦ photography">
+  <main>
+    <div id="main-container" class="w-[95vw] flex flex-col gap-10 pb-20">
+      <div
+        id="content-container"
+        class="w-full flex flex-col justify-center items-center gap-10"
+      >
+        <div class="grid grid-cols-3">
+          <a href="/" class="arrow-photography-style flex justify-start items-center h-[12vh]">≺</a>
+          <p
+            class="name-photography-style flex justify-center items-center h-[12vh]"
+          >
+            фотографии
+          </p>
+        </div>
+        {
+          photos.map((photo) => (
+            <div class="flex flex-col justify-center">
+              <div class="bg-[#F2F2F2] max-w-[600px] rounded-[3vw] shadow-md w-[90vw] h-auto">
+                <img
+                  src={photo.data.photo_preview_url}
+                  class="w-full h-auto object-cover rounded-[3vw]"
+                  alt="Preview"
+                  loading="lazy"
+                />
+              </div>
+              <p class="text-[#919191] text-center pt-[2vh]">
+                {photo.data.title}
+              </p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </main>
+</MainView>

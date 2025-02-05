@@ -38,10 +38,14 @@ const paragraphs = [...document.querySelectorAll("p")].map(
   <body>
     <body class="bg-[#F0EEEC] flex justify-center items-center h-screen overflow-hidden">
       <!-- <div id="content-container" class="w-full h-[60vh] flex justify-center items-center"> -->
-        <div class="bg-[#F2F2F2] rounded-[3vw] shadow-md w-[90vw] h-[90vh] max-w-[800px]">
-          <div id="content"></div>
-          <div id="lb-button">2</div>
-          <div id="rb-button">4</div>
+        <div id="content-container" class="relative bg-[#F2F2F2] rounded-[3vw] shadow-md w-[90vw] h-[90vh] max-w-[800px]">
+          <div id="content" class="border-4 border-amber-500"></div>
+          <div id="lb-button" class="bg-[#E2E2E2] rounded-bl-[3vw] rounded-tr-[3vw] w-[90px] h-[90px] absolute bottom-0 left-0 flex justify-center items-center">
+            <p>2</p>
+          </div>
+          <div id="rb-button" class="bg-[#E2E2E2] rounded-br-[3vw] rounded-tl-[3vw] w-[90px] h-[90px] absolute bottom-0 right-0 flex justify-center items-center">
+            <p>4</p>
+          </div>
         </div>
       <!-- </div> -->
     </body>

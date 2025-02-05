@@ -1,5 +1,4 @@
 ---
-import Layout from '../layouts/Layout.astro'
 interface Props {
   title: string;
 }
@@ -13,10 +12,34 @@ const { title } = Astro.props;
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="preload" href="/fonts/Partisanpress.otf" as="font" type="font/otf" crossorigin="anonymous">
-    <link rel="preload" href="/fonts/LincolnElectric-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
-    <link rel="preload" href="/fonts/SpecialEliteLomzz.ttf" as="font" type="font/ttf" crossorigin="anonymous">
-    <link rel="preload" href="/fonts/aempirial.ttf" as="font" type="font/ttf" crossorigin="anonymous">
+    <link
+      rel="preload"
+      href="/fonts/Partisanpress.otf"
+      as="font"
+      type="font/otf"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="preload"
+      href="/fonts/LincolnElectric-Regular.ttf"
+      as="font"
+      type="font/ttf"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="preload"
+      href="/fonts/SpecialEliteLomzz.ttf"
+      as="font"
+      type="font/ttf"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="preload"
+      href="/fonts/aempirial.ttf"
+      as="font"
+      type="font/ttf"
+      crossorigin="anonymous"
+    />
     <meta name="generator" content={Astro.generator} />
     <style is:global>
       :root {
@@ -36,6 +59,15 @@ const { title } = Astro.props;
         font-size: clamp(4rem, 7vw, 5rem);
         text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
         letter-spacing: 0.8rem;
+      }
+
+      .arrow-photography-style {
+        font-family: "Partisanpress", sans-serif;
+        font-size: clamp(2rem, 5vw, 4rem);
+        /*        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);*/
+        /*        letter-spacing: 0.8rem;*/
+        padding-top: 1vh;
+        color: #919191;
       }
 
       @font-face {
@@ -89,7 +121,7 @@ const { title } = Astro.props;
     </style>
     <title>{title}</title>
   </head>
-  <body class="bg-[#F0EEEC] flex justify-center items-center h-screen overflow-hidden">
+  <body class="bg-[#F0EEEC] flex justify-center items-center">
     <slot />
   </body>
 </html>
